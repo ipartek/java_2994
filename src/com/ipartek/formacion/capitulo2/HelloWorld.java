@@ -8,7 +8,13 @@ public class HelloWorld {
 		String saludo = "Hola Mundo";
 		System.out.println(saludo);
 
-		Mesa m1 = new Mesa();
+		Mesa mDefecto = new Mesa();
+
+		Mesa m1 = new Mesa(Mesa.MATERIAL_ALUMINIO, 2);
+		Mesa m2 = new Mesa(Mesa.MATERIAL_MADERA, 4);
+
+		System.out.println(m1.toString());
+		System.out.println("Precio = " + m1.getPrecio() + " €");
 	}
 
 }
