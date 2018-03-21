@@ -1,6 +1,7 @@
 package com.ipartek.formacion.capitulo3;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -86,6 +87,54 @@ public class MesaTest {
 		mesa.setNumeroPatas(-4);
 		assertEquals(PRECIO_BASE - (3 * Mesa.PRECIO_PATA), mesa.getPrecio());
 
+	}
+
+	@Test
+	public void comparar() {
+
+		Mesa m1 = new Mesa();
+		Mesa m2 = new Mesa();
+
+		assertEquals(m1.getNumeroPatas(), m2.getNumeroPatas());
+		assertTrue(m1.equals(m2));
+
+		String a = "hola";
+		String b = "hola";
+
+		assertTrue(a == b);
+		assertTrue(a.equals(b));
+
+	}
+
+	@Test
+	public void pasoValorYreferencia() throws CloneNotSupportedException {
+
+		// Paso parametro por Valor
+		// Siempre para primitivas
+		int a = 0;
+		int b = sumar(a);
+
+		assertEquals(0, a);
+		assertEquals(1, b);
+
+		Mesa mesaA = new Mesa();
+
+		Mesa mesaB = sumarPata(mesaA);
+
+		Mesa mesaClon = (Mesa) mesaA.clone();
+
+		assertEquals(5, mesaA.getNumeroPatas());
+		assertEquals(5, mesaB.getNumeroPatas());
+
+	}
+
+	int sumar(int num) {
+		return num = num + 1;
+	}
+
+	Mesa sumarPata(Mesa m) {
+		m.setNumeroPatas(m.getNumeroPatas() + 1);
+		return m;
 	}
 
 }

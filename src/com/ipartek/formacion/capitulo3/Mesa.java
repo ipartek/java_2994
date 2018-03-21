@@ -9,7 +9,7 @@ package com.ipartek.formacion.capitulo3;
  * @author ur00
  *
  */
-public class Mesa {
+public class Mesa implements Cloneable {
 
 	/**
 	 * precio en €
@@ -137,6 +137,45 @@ public class Mesa {
 		}
 
 		return resul;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + dimension;
+		result = prime * result + material;
+		result = prime * result + numeroPatas;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Mesa other = (Mesa) obj;
+		if (color == null) {
+			if (other.color != null)
+				return false;
+		} else if (!color.equals(other.color))
+			return false;
+		if (dimension != other.dimension)
+			return false;
+		if (material != other.material)
+			return false;
+		if (numeroPatas != other.numeroPatas)
+			return false;
+		return true;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }
