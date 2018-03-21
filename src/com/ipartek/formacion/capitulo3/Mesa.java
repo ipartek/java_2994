@@ -111,6 +111,31 @@ public class Mesa {
 
 		int resul = 0;
 
+		resul += this.numeroPatas * PRECIO_PATA;
+		resul += this.dimension * PRECIO_M2;
+
+		if (PRECIO_COLOR_NAME_CUSTOM.equalsIgnoreCase(this.color)) {
+			resul += PRECIO_COLOR_CUSTOM;
+		}
+
+		switch (this.material) {
+		case MATERIAL_ACERO:
+			resul += PRECIO_MATERIAL_ACERO;
+			break;
+		case MATERIAL_ALUMINIO:
+			resul += PRECIO_MATERIAL_ALUMINIO;
+			break;
+		case MATERIAL_MADERA:
+			resul += PRECIO_MATERIAL_MADERA;
+			break;
+		case MATERIAL_PLASTICO:
+			resul += PRECIO_MATERIAL_PLASTICO;
+			break;
+
+		default:
+			break;
+		}
+
 		return resul;
 	}
 

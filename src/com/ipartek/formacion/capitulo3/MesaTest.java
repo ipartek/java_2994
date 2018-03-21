@@ -72,7 +72,7 @@ public class MesaTest {
 		mesa = new Mesa();
 		int nuevaDimension = 10;
 		mesa.setDimension(nuevaDimension);
-		precio = PRECIO_BASE + (mesa.PRECIO_M2 * mesa.getDimension() - (1 * Mesa.PRECIO_PATA));
+		precio = PRECIO_BASE + (mesa.PRECIO_M2 * mesa.getDimension() - (1 * Mesa.PRECIO_M2));
 		assertEquals(precio, mesa.getPrecio());
 
 		// Numero Patas
