@@ -72,19 +72,19 @@ public class MesaTest {
 		mesa = new Mesa();
 		int nuevaDimension = 10;
 		mesa.setDimension(nuevaDimension);
-		precio = PRECIO_BASE + (mesa.PRECIO_M2 * mesa.getDimension());
+		precio = PRECIO_BASE + (mesa.PRECIO_M2 * mesa.getDimension() - (1 * Mesa.PRECIO_PATA));
 		assertEquals(precio, mesa.getPrecio());
 
 		// Numero Patas
 		mesa = new Mesa();
 		int numeroPatas = 8;
 		mesa.setNumeroPatas(numeroPatas);
-		precio = PRECIO_BASE + (Mesa.PRECIO_PATA * mesa.getNumeroPatas());
+		precio = PRECIO_BASE + (Mesa.PRECIO_PATA * mesa.getNumeroPatas() - (4 * Mesa.PRECIO_PATA));
 		assertEquals(precio, mesa.getPrecio());
 
 		mesa = new Mesa();
 		mesa.setNumeroPatas(-4);
-		assertEquals(PRECIO_BASE, mesa.getPrecio());
+		assertEquals(PRECIO_BASE - (3 * Mesa.PRECIO_PATA), mesa.getPrecio());
 
 	}
 
